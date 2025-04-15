@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:local="clr-namespace:Styling"
+             x:Class="Styling.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:OrderInfoRepository x:Name="viewModel" />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <!--<Style TargetType="syncfusion:DataGridHeaderRow">
+            <Setter Property="Background" Value="Beige"/>
+        </Style>-->
+        <Style TargetType="syncfusion:DataGridHeaderCell">
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <!--<Setter Property="Background" Value="Beige"/>
+            <Setter Property="FontFamily" Value="Congenial Black"/>
+            <Setter Property="TextColor" Value="Red"/>-->
+        </Style>
+        <!--<Style TargetType="syncfusion:DataGridCell">
+            <Setter Property="Background" Value="Beige"/>
+            <Setter Property="TextColor" Value="Red"/>
+        </Style>-->
+        <!--<Style TargetType="syncfusion:DataGridRow">
+            <Setter Property="Background" Value="Beige"/>
+        </Style>-->
+
+        <Style TargetType="syncfusion:DataGridStackedHeaderCell">
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="Background" Value="Beige"/>
+            <Setter Property="FontFamily" Value="Congenial Black"/>
+            <Setter Property="TextColor" Value="Red"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <syncfusion:SfDataGrid ColumnWidthMode="Auto" SelectionUnit="Row" SelectionMode="Single" NavigationMode="Cell" HeaderGridLinesVisibility="Both"  GridLinesVisibility="Both"
+                            ItemsSource="{Binding OrderInfoCollection}">
+            <syncfusion:SfDataGrid.Columns>
+                <syncfusion:DataGridTextColumn MappingName="OrderID" HeaderText="Order ID" />
+                <syncfusion:DataGridTextColumn MappingName="CustomerID" HeaderText="Customer ID" />
+                <syncfusion:DataGridTextColumn MappingName="Customer"  />
+                <syncfusion:DataGridTextColumn MappingName="ShipCity"  HeaderText="Ship City" />
+                <syncfusion:DataGridTextColumn MappingName="ShipCountry"  HeaderText="Ship Country" />
+            </syncfusion:SfDataGrid.Columns>
+            <!--<syncfusion:SfDataGrid.StackedHeaderRows>
+                <syncfusion:DataGridStackedHeaderRow>
+                    <syncfusion:DataGridStackedHeaderRow.Columns>
+                        <syncfusion:DataGridStackedColumn
+                            ColumnMappingNames="OrderID,CustomerID,Customer,ShipCity,ShipCountry"
+                            Text="Order Shipment Details"
+                            MappingName="SalesDetails"
+                            />
+                    </syncfusion:DataGridStackedHeaderRow.Columns>
+                </syncfusion:DataGridStackedHeaderRow>
+                <syncfusion:DataGridStackedHeaderRow>
+                    <syncfusion:DataGridStackedHeaderRow.Columns>
+                        <syncfusion:DataGridStackedColumn
+                            ColumnMappingNames="OrderID"
+                            Text="Order Details"
+                            MappingName="OrderDetails"
+                            />
+                        <syncfusion:DataGridStackedColumn
+                            ColumnMappingNames="CustomerID,Customer"
+                            Text="Customer Details"
+                            MappingName="CustomerDetails"
+                            />
+                        <syncfusion:DataGridStackedColumn
+      ColumnMappingNames="ShipCity,ShipCountry"
+      Text="Shipping Details"
+      MappingName="ShippingDetails"
+      />
+                    </syncfusion:DataGridStackedHeaderRow.Columns>
+                </syncfusion:DataGridStackedHeaderRow>
+            </syncfusion:SfDataGrid.StackedHeaderRows>-->
+            <syncfusion:SfDataGrid.DefaultStyle>
+                <syncfusion:DataGridStyle SelectedRowTextColor="Red"
+                                          SelectionBackground="Beige"
+                                          CurrentCellBorderColor="Green"
+                                          CurrentCellBorderWidth="3"/>
+            </syncfusion:SfDataGrid.DefaultStyle>
+        </syncfusion:SfDataGrid>
+    </ContentPage.Content>
+</ContentPage>
