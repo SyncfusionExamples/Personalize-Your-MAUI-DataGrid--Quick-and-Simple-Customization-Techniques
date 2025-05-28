@@ -26,10 +26,40 @@
             <Setter Property="Background" Value="Beige"/>
         </Style>-->
 
-        <Style TargetType="syncfusion:DataGridStackedHeaderCell">
+        <!--<Style TargetType="syncfusion:DataGridStackedHeaderCell">
             <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="Background" Value="Beige"/>
             <Setter Property="FontFamily" Value="Congenial Black"/>
+            <Setter Property="TextColor" Value="Red"/>
+        </Style>-->
+        <!--<Style TargetType="syncfusion:DataGridTableSummaryRowView">
+            <Setter Property="Background" Value="Beige"/>
+        </Style>-->
+        <!--<Style TargetType="syncfusion:DataGridTableSummaryCell">
+            <Setter Property="Background" Value="Beige"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Congenial Black"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextColor" Value="Red"/>
+        </Style>-->
+        <!--<Style TargetType="syncfusion:DataGridCaptionSummaryRowView">
+            <Setter Property="Background" Value="Beige"/>
+        </Style>-->
+        <!--<Style TargetType="syncfusion:DataGridCaptionSummaryCell">
+            <Setter Property="Background" Value="Beige"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Congenial Black"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="Red"/>
+        </Style>-->
+        <!--<Style TargetType="syncfusion:DataGridGroupSummaryRowView">
+            <Setter Property="Background" Value="Beige"/>
+        </Style>-->
+        <Style TargetType="syncfusion:DataGridGroupSummaryCell">
+            <Setter Property="Background" Value="Beige"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Congenial Black"/>
+            <Setter Property="FontSize" Value="16"/>
             <Setter Property="TextColor" Value="Red"/>
         </Style>
     </ContentPage.Resources>
@@ -43,6 +73,20 @@
                 <syncfusion:DataGridTextColumn MappingName="ShipCity"  HeaderText="Ship City" />
                 <syncfusion:DataGridTextColumn MappingName="ShipCountry"  HeaderText="Ship Country" />
             </syncfusion:SfDataGrid.Columns>
+            <syncfusion:SfDataGrid.GroupColumnDescriptions>
+                <syncfusion:GroupColumnDescription ColumnName="ShipCountry"/>
+            </syncfusion:SfDataGrid.GroupColumnDescriptions>
+            <syncfusion:SfDataGrid.GroupSummaryRows>
+                <syncfusion:DataGridSummaryRow ShowSummaryInRow="True"
+                                      Title="Number of orders : {OrderCount}">
+                    <syncfusion:DataGridSummaryRow.SummaryColumns>
+                        <syncfusion:DataGridSummaryColumn Name="OrderCount"
+                       Format="{}{Count}"
+                       MappingName="OrderID"
+                       SummaryType="CountAggregate" />
+                    </syncfusion:DataGridSummaryRow.SummaryColumns>
+                </syncfusion:DataGridSummaryRow>
+            </syncfusion:SfDataGrid.GroupSummaryRows>
             <!--<syncfusion:SfDataGrid.StackedHeaderRows>
                 <syncfusion:DataGridStackedHeaderRow>
                     <syncfusion:DataGridStackedHeaderRow.Columns>
@@ -73,12 +117,25 @@
                     </syncfusion:DataGridStackedHeaderRow.Columns>
                 </syncfusion:DataGridStackedHeaderRow>
             </syncfusion:SfDataGrid.StackedHeaderRows>-->
-            <syncfusion:SfDataGrid.DefaultStyle>
-                <syncfusion:DataGridStyle SelectedRowTextColor="Red"
-                                          SelectionBackground="Beige"
-                                          CurrentCellBorderColor="Green"
-                                          CurrentCellBorderWidth="3"/>
-            </syncfusion:SfDataGrid.DefaultStyle>
+            <!--<syncfusion:SfDataGrid.TableSummaryRows>
+                <syncfusion:DataGridTableSummaryRow Title="Number of orders : {OrderCount}"
+                                        Position="Top"
+                                        ShowSummaryInRow="True">
+                    <syncfusion:DataGridTableSummaryRow.SummaryColumns>
+                        <syncfusion:DataGridSummaryColumn Name="OrderCount"
+                                              Format="{}{Count}"
+                                              MappingName="OrderID"
+                                              SummaryType="CountAggregate" />
+                    </syncfusion:DataGridTableSummaryRow.SummaryColumns>
+                </syncfusion:DataGridTableSummaryRow>
+            </syncfusion:SfDataGrid.TableSummaryRows>-->
+            <!--<syncfusion:SfDataGrid.DefaultStyle>
+                <syncfusion:DataGridStyle GroupSummaryRowBackground="Beige"
+                                          GroupSummaryRowFontAttributes="Bold"
+                                          GroupSummaryRowFontFamily="Congenial Black"
+                                          GroupSummaryRowFontSize="18"
+                                          GroupSummaryRowTextColor="Red"/>
+            </syncfusion:SfDataGrid.DefaultStyle>-->
         </syncfusion:SfDataGrid>
     </ContentPage.Content>
 </ContentPage>
